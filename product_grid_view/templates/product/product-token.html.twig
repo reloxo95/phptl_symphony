@@ -1,0 +1,56 @@
+{#
+** product: Product entity wrapper with all fields
+#}
+
+{% block body %}
+<div class="col-12 product-token-view">
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-12 product-img">
+            <img class="img-fluid" src="{{ product.getImageUrl() }}"/>
+        </div>
+        <div class="col-md-2 col-12 d-flex">
+            {% if product.getPriceOffer() %}
+                <div class="product-prices product-has-offer">
+            {% else %}
+                <div class="product-prices">
+            {% endif %}
+                <p class="price-base">{{ product.getPrice()/100 }} €</p>
+                <p class="price-discount">{{ product.getPriceOffer()/100 }} €</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 product-title">
+            <h2>{{ product.getName() }}</h2>
+            <h3>{{ product.getBrand() }}</h3>
+            <div class="d-flex product-flex-elements">
+                {% if product.getPriceOfferText() %}
+                    <p>{{ product.getPriceOfferText() }} Descuento</p>
+                {% endif %}
+                {% if product.isFreeShipping() %}
+                    <p>Envío gratis</p>
+                {% endif %}
+            </div>
+
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse{{ product.id() }}" role="button" 
+            aria-expanded="false" aria-controls="collapse{{ product.id() }}">Mostrar más</a>
+        </div>
+        <div class="col-md-3 col-12 d-flex">
+            <div class="product-buy">
+                <a class="btn btn-warning" href="{{ product.getMoreinfoUrl() }}" target="_blank">Comprar ahora ></a>
+                <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"/>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="collapse multi-collapse" id="collapse{{ product.id() }}">
+            <div class="product-features">
+                <ul>
+                    {% for row in product.getFeatures() %}
+                        <li>{{ row }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

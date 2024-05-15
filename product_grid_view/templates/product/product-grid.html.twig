@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PHPTL | Product Grid{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="row title-section mt-5">
+        <div class="col text-center">
+            <h1>Las 10 mejores barras de sonido del mercado</h1>
+        </div>
+    </div>
+
+    <div class="row product-grid-view mt-3">
+        {% for product in products %}
+            {{ include('product/product-token.html.twig', {product: product}) }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
