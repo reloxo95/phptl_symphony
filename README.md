@@ -1,12 +1,12 @@
 # PHPTL - SYMPHONY/DOCKER #
 
-Parts of the project:
-- Product_grid_view: symphony project with all tech features
-- Docker: docker componentes to deploy de infra and web server
-- Docs: many docs about future features, answers about Manage questions, and more
+Project structure:
+- ./product_grid_view: symphony project with all tech features
+- ./deployment: docker components to deploy de infra and web server
+- ./docs: many docs about future features, answers about Manage questions, and more
 
 
-## BASIC COMMANDS ##
+### BASIC COMMANDS ###
 
 - Start project: symfony server:start --no-tls
 - Create database: php bin/console doctrine:database:create
