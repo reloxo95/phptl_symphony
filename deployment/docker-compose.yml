@@ -1,0 +1,15 @@
+services:
+  webserver-phptl:
+    restart: always
+    build: ./webserver
+    env_file:
+      - ./.mysql-phptl.env
+    ports:
+      - ${PORT_TO_EXPOSE}:8000
+    tty: true
+    volumes:
+      - ../product_grid_view:/var/www/project
+      - ./docker-files:/root/files
+
+volumes:
+  mysql-data:

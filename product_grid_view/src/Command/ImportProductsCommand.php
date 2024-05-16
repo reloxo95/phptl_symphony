@@ -37,7 +37,8 @@ class ImportProductsCommand extends Command {
         $output->writeln("Starting process of import Products to DDBB");
 
         // Read static JSON file
-        $json_file_path = __DIR__ . '/../../../products.json';
+        //$json_file_path = __DIR__ . '/../../../products.json';
+        $json_file_path = __DIR__ . '/../../external_files/products.json';
         $json_file = file_get_contents($json_file_path);
         $json_data = json_decode($json_file);
 
